@@ -6808,3 +6808,23 @@ class Publishers(jenkins_jobs.modules.base.Base):
 
         for action in data.get('publishers', []):
             self.registry.dispatch('publisher', publishers, action)
+
+def del_heat(registry, xml_parent, data):
+    """yaml: del-heat
+    Openstack heat HOTPlayer.
+
+    Example:
+
+    .. literalinclude:: /../../tests/publishers/fixtures/del-heat.yaml
+       :language: yaml
+
+    """
+    heat = XML.SubElement(xml_parent, 'com.arkea.jenkins.openstack.heat.StackCleanup')
+    heat.set('plugin', 'openstack-heat')
+    hotmap = XML.SubElement(heat, 'stackHotMap')
+    for key in data:
+        entry = XML.SubElement(hotmap, 'entry')
+        stack = XML.SubElement(entry, 'string')
+        project = XML.SubElement(entry, 'string')
+        stack.text=key
+        project.text=data[key]

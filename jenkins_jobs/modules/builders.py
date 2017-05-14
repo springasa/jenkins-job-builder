@@ -3875,3 +3875,27 @@ def nexus_artifact_uploader(registry, xml_parent, data):
     ]
     convert_mapping_to_xml(
         nexus_artifact_uploader, data, mapping, fail_required=True)
+
+def heat(registry, xml_parent, data):
+    """yaml: heat
+    Openstack heat HOTPlayer.
+
+    Example:
+
+    .. literalinclude:: /../../tests/builders/fixtures/heat.yaml
+       :language: yaml
+
+    """
+    heat = XML.SubElement(xml_parent, 'com.arkea.jenkins.openstack.heat.HOTPlayer')
+    heat.set('plugin', 'openstack-heat')
+    mapping = [
+        ('project', 'project', ''),
+        ('hot', 'hotName', ''),
+        ('env', 'envContent', ''),
+        ('name', 'stackName', ''),
+        ('exist', 'deleteExist', False),
+        ('debug', 'debug', False),
+    ]
+  
+    convert_mapping_to_xml(
+        heat, data, mapping, fail_required=True)

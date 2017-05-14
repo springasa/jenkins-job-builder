@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <builders>
+    <com.arkea.jenkins.openstack.heat.HOTPlayer plugin="openstack-heat">
+      <project>jenkins</project>
+      <hotName>hello.yaml</hotName>
+      <envContent>parameters:
+  admin_pass:
+  db_port:50000
+  flavor:m1.small
+  image:
+  key_name:
+</envContent>
+      <stackName>stack1</stackName>
+      <deleteExist>true</deleteExist>
+      <debug>true</debug>
+    </com.arkea.jenkins.openstack.heat.HOTPlayer>
+  </builders>
+</project>

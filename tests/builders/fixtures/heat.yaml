@@ -1,0 +1,15 @@
+builders:
+  - heat:
+      project: jenkins
+      hot: server.yaml
+      env: |
+        parameters:
+          admin_pass:password
+          db_port:50000
+          flavor:m1.small
+          image:ubuntu cloud
+          key_name:develop
+      name: stack1
+      exist: true
+      debug: true
+

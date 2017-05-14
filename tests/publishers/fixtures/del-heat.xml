@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <publishers>
+    <com.arkea.jenkins.openstack.heat.StackCleanup plugin="openstack-heat">
+      <stackHotMap>
+        <entry>
+          <string>stack1</string>
+          <string>jenkins</string>
+        </entry>
+      </stackHotMap>
+    </com.arkea.jenkins.openstack.heat.StackCleanup>
+  </publishers>
+  <buildWrappers/>
+</project>

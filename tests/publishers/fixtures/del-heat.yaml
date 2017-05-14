@@ -1,0 +1,4 @@
+publishers:
+  - del-heat:
+      stack1: 'jenkins'
+
